@@ -121,7 +121,9 @@ export default function Result() {
     return (
       <div className={styles.main_body_wrap}>
         <div className={styles.main_content_wrap}>
-          <div className={styles.loading}>결과를 불러오는 중…</div>
+          <div className={styles.loading_centered}>
+            <div className={styles.loading}>결과를 불러오는 중…</div>
+          </div>
         </div>
       </div>
     );

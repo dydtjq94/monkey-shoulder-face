@@ -100,3 +100,14 @@
   font-family: "GmarketSans";
   margin: 24px 24px 24px 24px;
 }
+
+.loading_centered {
+  font-family: "GmarketSans";
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 전체 화면 높이 */
+  width: 100%; /* 전체 화면 너비 */
+}
