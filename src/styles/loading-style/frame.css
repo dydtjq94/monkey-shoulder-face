@@ -1,0 +1,40 @@
+.border_wrap {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.border {
+  width: 600px;
+  height: 680px;
+  box-sizing: border-box;
+  border-radius: 48px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_square_frame {
+  width: 440px;
+  height: 480px;
+}
+
+.image_square {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ 프레임을 채우며 비율 맞추고 자르기 */
+  object-position: center; /* ✅ 중앙 기준 자르기 */
+}
+
+.image_title_wrap {
+  margin-top: 32px;
+}
+
+.ai {
+  font-size: 36px;
+  font-family: "NanumSquare";
+  font-weight: 600;
+}

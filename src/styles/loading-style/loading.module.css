@@ -1,0 +1,113 @@
+.border_wrap {
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.border {
+  width: 480px;
+  height: 600px;
+  box-sizing: border-box;
+  border-radius: 48px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_square_frame {
+  width: 360px;
+  height: 400px;
+}
+
+.image_square {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ 프레임을 채우며 비율 맞추고 자르기 */
+  object-position: center; /* ✅ 중앙 기준 자르기 */
+}
+
+.image_title_wrap {
+  margin-top: 44px;
+}
+
+.ai {
+  font-size: 28px;
+  font-family: "NanumSquare";
+  font-weight: 600;
+}
+
+.main_body_wrap {
+  z-index: 100;
+}
+
+.header_img_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 36px;
+}
+
+.header_img {
+  width: 280px;
+}
+
+.main_title_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_title {
+  margin-top: 12px;
+  font-family: "VitroCore", serif;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 160px;
+}
+
+.main_subtitle {
+  margin-top: 24px;
+  font-family: "GmarketSans";
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+
+  text-align: center;
+}
+
+.btn_img_wrap {
+  margin-top: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn_img {
+  width: 280px;
+}
+
+.nostore {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.footer_img {
+  width: 100%;
+  position: fixed; /* 스크롤 여부와 무관하게 Viewport 고정 */
+  inset: auto 0 0 0; /* top 자동, 좌·우 0, bottom 0  (→ shorthand) */
+  height: auto; /* 이미지 원본 비율 유지 */
+
+  z-index: -1; /* 가장 뒤 레이어 (main_body_wrap z=100보다 낮음) */
+  pointer-events: none; /* 클릭 막지 않도록 – UI 요소에 투과 */
+
+  /* 옵션: 뷰포트 너비 초과 시 잘리지 않게 */
+  object-fit: cover; /* 가득 채우고, 넘치면 잘라냄 */
+}

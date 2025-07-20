@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 3000 3000">
+  <!-- Generator: Adobe Illustrator 29.0.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 192)  -->
+  <defs>
+    <style>
+      .st0 {
+        isolation: isolate;
+      }
+
+      .st1 {
+        fill: #f15b38;
+      }
+
+      .st2 {
+        fill: url(#radial-gradient);
+      }
+
+      .st2, .st3, .st4 {
+        mix-blend-mode: screen;
+      }
+
+      .st3 {
+        fill: url(#radial-gradient2);
+      }
+
+      .st4 {
+        fill: url(#radial-gradient1);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="1596.6" cy="2022.4" fx="1596.6" fy="2022.4" r="1368.1" gradientTransform="translate(3522.4 -96.6) rotate(90)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".1" stop-color="#c9c9c9"/>
+      <stop offset=".2" stop-color="#9a9a9a"/>
+      <stop offset=".3" stop-color="#717171"/>
+      <stop offset=".4" stop-color="#4e4e4e"/>
+      <stop offset=".5" stop-color="#313131"/>
+      <stop offset=".6" stop-color="#1b1b1b"/>
+      <stop offset=".7" stop-color="#0c0c0c"/>
+      <stop offset=".8" stop-color="#020202"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient1" cx="1418.5" cy="12667.8" fx="1418.5" fy="12667.8" r="3925.6" gradientTransform="translate(2133.4 759.4) rotate(90) scale(.5 0)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0" stop-color="#d7d7d7"/>
+      <stop offset="0" stop-color="#aaa"/>
+      <stop offset=".2" stop-color="#818181"/>
+      <stop offset=".2" stop-color="#5e5e5e"/>
+      <stop offset=".3" stop-color="#414141"/>
+      <stop offset=".4" stop-color="#292929"/>
+      <stop offset=".5" stop-color="#161616"/>
+      <stop offset=".6" stop-color="#090909"/>
+      <stop offset=".7" stop-color="#020202"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient2" cx="2161.3" cy="-2512.7" fx="2161.3" fy="-2512.7" r="3925.6" gradientTransform="translate(2617.5 1374.4) rotate(-180) scale(.5 0)" xlink:href="#radial-gradient1"/>
+  </defs>
+  <g class="st0">
+    <g id="Layer_1">
+      <rect class="st1" width="3000" height="3000"/>
+      <g>
+        <circle class="st2" cx="1500" cy="1500" r="1368.1" transform="translate(-621.3 1500) rotate(-45)"/>
+        <ellipse class="st4" cx="1500" cy="1500" rx="196.3" ry="2049.4" transform="translate(-621.3 1500) rotate(-45)"/>
+        <ellipse class="st3" cx="1500" cy="1500" rx="2029.7" ry="196.3" transform="translate(-621.3 1500) rotate(-45)"/>
+      </g>
+    </g>
+  </g>
+</svg>

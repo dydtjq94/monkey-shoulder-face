@@ -1,0 +1,103 @@
+.main_body_wrap {
+  z-index: 100;
+}
+
+.header_img_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 54px;
+}
+
+.header_img {
+  width: 320px;
+}
+
+.main_title_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_title {
+  margin-top: 24px;
+  font-family: "VitroCore", serif;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 160px;
+}
+
+.sub_title_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sub_title {
+  font-family: "GmarketSans";
+  font-weight: 600;
+  font-size: 68px;
+  margin-top: 12px;
+}
+
+.sub_title2 {
+  font-family: "GmarketSans";
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+}
+.qr_wrap {
+  margin: 32px auto;
+  text-align: center;
+}
+.qr {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+}
+.score_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.score {
+  font-family: "GmarketSans";
+  font-weight: 600;
+  font-size: 40px;
+  padding: 12px 0;
+  border-top: 3px solid #282828;
+  border-bottom: 3px solid #282828;
+}
+
+.summary_wrap {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.summary {
+  text-align: center;
+  width: 70%;
+  font-family: "GmarketSans";
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.footer_img {
+  width: 100%;
+  position: fixed; /* 스크롤 여부와 무관하게 Viewport 고정 */
+  inset: auto 0 0 0; /* top 자동, 좌·우 0, bottom 0  (→ shorthand) */
+  height: auto; /* 이미지 원본 비율 유지 */
+
+  z-index: -1; /* 가장 뒤 레이어 (main_body_wrap z=100보다 낮음) */
+  pointer-events: none; /* 클릭 막지 않도록 – UI 요소에 투과 */
+
+  /* 옵션: 뷰포트 너비 초과 시 잘리지 않게 */
+  object-fit: cover; /* 가득 채우고, 넘치면 잘라냄 */
+}

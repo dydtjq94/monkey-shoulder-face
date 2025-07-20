@@ -1,0 +1,123 @@
+/* ─── src/pages/Home.jsx ─── */
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import mixpanel from "mixpanel-browser";
+import styles from "../styles/home-style/home.module.css";
+
+export default function Home() {
+  /* ───────── Mixpanel 초기화 ───────── */
+  useEffect(() => {
+    let distinctId = localStorage.getItem("mixpanel_distinct_id");
+    if (!distinctId) {
+      distinctId = crypto.randomUUID();
+      localStorage.setItem("mixpanel_distinct_id", distinctId);
+    }
+
+    mixpanel.init("e79cc909eb5b5368943eedd49742f5f6", {
+      debug: true,
+      autotrack: true,
+      persistence: "localStorage",
+    });
+    mixpanel.identify(distinctId);
+    mixpanel.track("메인 페이지 방문-리액트", {
+      url: window.location.href,
+      userAgent: navigator.userAgent,
+      timestamp: new Date().toISOString(),
+    });
+  }, []);
+
+  /* ───────── 사진 업로드 → /loading ───────── */
+  const fileInputRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleStartClick = () => fileInputRef.current?.click();
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file); // 브라우저 임시 URL
+    sessionStorage.setItem("face_photo_url", url); // 새로고침 대비
+    mixpanel.track("사진 업로드", { filename: file.name });
+
+    navigate("/loading", { state: { photoUrl: url } }); // 사진 URL 넘겨 이동
+  };
+
+  /* ───────── JSX ───────── */
+  return (
+    <div className={styles.main_body_wrap}>
+      {/* 숨겨진 파일 입력 */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        capture="user"
+        style={{ display: "none" }}
+        onChange={handleFileChange}
+      />
+
+      {/* 뒤쪽 별 장식 */}
+      <div className={styles.star_img_wrap}>
+        <img src="/star.svg" alt="" className={styles.star_img} />
+      </div>
+      <div className={styles.star_img_wrap2}>
+        <img src="/star.svg" alt="" className={styles.star_img2} />
+      </div>
+      <div className={styles.star_img_wrap3}>
+        <img src="/star.svg" alt="" className={styles.star_img3} />
+      </div>
+
+      {/* 메인 콘텐츠 */}
+      <div className={styles.main_content_wrap}>
+        <div className={styles.header_img_wrap}>
+          <img
+            className={styles.header_img}
+            src="https://i.ibb.co/tM5WQxdp/banner.png"
+            alt="배너"
+          />
+        </div>
+
+        <div className={styles.main_title_wrap}>
+          <div className={styles.main_title}>
+            재물운
+            <br />
+            용하당
+          </div>
+          <div className={styles.main_subtitle}>
+            관상으로 보는 나의 재물운
+            <br />
+            당신의 돈길은 어디로 향하고 있을까?
+          </div>
+        </div>
+
+        {/* ▼ 2. ⭐️ 시작(촬영) 버튼 */}
+        <div className={styles.button_img_wrap}>
+          <button
+            type="button"
+            className={styles.btn_img_wrap}
+            onClick={handleStartClick}
+          >
+            <img
+              src="https://i.ibb.co/dwWSR2Lp/click.png"
+              alt="시작 버튼"
+              className={styles.btn_img}
+            />
+          </button>
+        </div>
+
+        <p className={styles.nostore}>
+          *본 프로그램은 얼굴 사진 촬영을 통해 관상 분석을 진행하며,
+          <br />
+          참여 시 해당 내용에 동의한 것으로 간주됩니다.
+        </p>
+      </div>
+
+      {/* 하단 고정 이미지 */}
+      <img
+        className={styles.footer_img}
+        src="https://i.ibb.co/zhxM4jhS/vdvdv.png"
+        alt=""
+      />
+    </div>
+  );
+}

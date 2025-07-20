@@ -1,0 +1,14 @@
+@import "font.css";
+@import "reset.css";
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #f15b37;
+  color: #101010;
+}
+
+hr {
+  border: 0; /* 기존 회색 1px 제거 */
+  border-top: 3px solid #bc3e1e; /* 굵기·색상 원하는 대로 */
+}
