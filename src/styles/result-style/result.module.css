@@ -116,6 +116,8 @@
 
 .toast {
   position: fixed;
+  width: 215px;
+
   top: 20px; /* ✔ 시작 위치 조금 더 아래로 */
   left: 50%;
   transform: translateX(-50%);
@@ -127,6 +129,8 @@
   z-index: 999;
   animation: dropAndFade 3s ease-in-out forwards;
   font-family: "GmarketSans";
+  display: flex;
+  opacity: 1;
 }
 
 @keyframes dropAndFade {

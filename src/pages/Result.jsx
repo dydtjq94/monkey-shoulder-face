@@ -107,12 +107,11 @@ export default function Result() {
   const handleDownload = () => {
     if (!pdfRef.current) return;
 
-    const element = pdfRef.current;
-    const elementRect = element.getBoundingClientRect();
+    const pxToMm = 0.264583;
 
-    // 픽셀 → mm 변환 (1px ≒ 0.264583mm)
-    const widthMM = 210; // A4 너비 고정
-    const heightMM = elementRect.height * 0.2645833;
+    const rect = pdfRef.current.getBoundingClientRect();
+    const widthMM = rect.width * pxToMm;
+    const heightMM = rect.height * pxToMm;
 
     const opt = {
       margin: 0,
@@ -124,12 +123,12 @@ export default function Result() {
       },
       jsPDF: {
         unit: "mm",
-        format: [widthMM, heightMM + 10], // ✔ 정확한 사이즈 지정
+        format: [widthMM, heightMM + 0.3], // ✔ 정확한 사이즈 지정
         orientation: "portrait",
       },
     };
 
-    html2pdf().set(opt).from(element).save();
+    html2pdf().set(opt).from(pdfRef.current).save();
 
     showToast("운세 보고서가 저장되었습니다!");
     mixpanel.track("결과 PDF 다운로드");
