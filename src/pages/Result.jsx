@@ -51,6 +51,11 @@ const simpleMD = (src = "") =>
     .replace(/^\s*[*+-]\s+(.+)$/gm, "<ul><li>$1</li></ul>")
     .replace(/(<\/ul>\s*)<ul>/g, "")
     .replace(/^\s*\d+\.\s+(.+)$/gm, "<ol><li>$1</li></ol>")
+    .replace(/([^\n]) (✅|⚠️|📌|💡|⭐️|🔥)/g, "$1\n\n$2")
+    .replace(
+      /^(?!<h\d>|<ul>|<ol>|<li>|<pre>|<blockquote>|<img|<p>|<\/?ul>|<\/?ol>|<\/?li>|<\/?pre>|<\/?blockquote>|<\/?h\d>)(.+)$/gm,
+      "<p>$1</p>"
+    )
     .replace(/(<\/ol>\s*)<ol>/g, "");
 
 export default function Result() {

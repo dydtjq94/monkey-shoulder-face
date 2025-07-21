@@ -71,7 +71,6 @@
 }
 
 .result_download_sub {
-  padding-bottom: 200px;
   font-family: "NanumSquare";
   font-weight: 400;
   font-size: 12px;
@@ -81,9 +80,8 @@
 }
 
 .footer_img {
+  margin-top: -32px;
   width: 100%;
-  opacity: 0.4;
-  position: fixed; /* 스크롤 여부와 무관하게 Viewport 고정 */
   inset: auto 0 0 0; /* top 자동, 좌·우 0, bottom 0  (→ shorthand) */
   height: auto; /* 이미지 원본 비율 유지 */
 

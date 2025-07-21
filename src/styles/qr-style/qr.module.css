@@ -46,8 +46,8 @@
 
 .sub_title2 {
   font-family: "GmarketSans";
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 28px;
+  line-height: 38px;
   text-align: center;
 }
 
@@ -56,8 +56,8 @@
   text-align: center;
 }
 .qr {
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 280px;
   margin: 0 auto;
 }
 
@@ -188,15 +188,24 @@
 
 .back_btn_wrap {
   position: fixed;
-  right: 24px;
+  right: 40px;
   bottom: 160px;
 }
 
 .back_btn {
+  display: flex;
   font-family: "GmarketSans";
-  font-size: 24px;
-  color: white;
-  background-color: #101010;
-  padding: 24px 24px 28px 24px;
+  align-items: center;
+  color: #101010;
   border-radius: 12px;
+}
+
+.back_btn span {
+  margin-right: 12px;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.back_btn img {
+  width: 100px;
 }
