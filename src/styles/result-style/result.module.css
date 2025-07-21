@@ -113,20 +113,22 @@
   height: 100vh; /* 전체 화면 높이 */
   width: 100%; /* 전체 화면 너비 */
 }
+
 .toast {
   position: fixed;
-  top: 0px; /* ✔ 시작 위치 조금 더 아래로 */
+  top: 20px; /* ✔ 시작 위치 조금 더 아래로 */
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(33, 33, 33, 0.95);
+  background-color: rgba(0, 136, 2, 0.95);
   color: #fff;
   padding: 12px 20px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 16px;
   z-index: 999;
   animation: dropAndFade 3s ease-in-out forwards;
   font-family: "GmarketSans";
 }
+
 @keyframes dropAndFade {
   0% {
     opacity: 0;
@@ -134,11 +136,11 @@
   }
   10% {
     opacity: 1;
-    transform: translateX(-50%) translateY(0px); /* 내려오면서 자리 잡기 */
+    transform: translateX(-50%) translateY(20px); /* 내려오면서 자리 잡기 */
   }
   90% {
     opacity: 1;
-    transform: translateX(-50%) translateY(0px);
+    transform: translateX(-50%) translateY(20px);
   }
   100% {
     opacity: 0;

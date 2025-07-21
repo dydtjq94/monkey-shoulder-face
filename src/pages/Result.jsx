@@ -131,7 +131,7 @@ export default function Result() {
 
     html2pdf().set(opt).from(element).save();
 
-    showToast("✅ 운세 리포트가 저장되었습니다!");
+    showToast("운세 보고서가 저장되었습니다!");
     mixpanel.track("결과 PDF 다운로드");
   };
 
@@ -139,7 +139,7 @@ export default function Result() {
     setToastMessage(message);
     setTimeout(() => {
       setToastMessage(""); // 2.5초 뒤 숨김
-    }, 2500);
+    }, 3500);
   };
 
   if (loading)
