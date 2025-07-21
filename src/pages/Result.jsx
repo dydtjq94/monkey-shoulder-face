@@ -59,6 +59,7 @@ export default function Result() {
 
   const [loading, setLoading] = useState(true);
   const [html, setHtml] = useState("");
+  const [toastMessage, setToastMessage] = useState("");
   const resultRef = useRef(null); // ★ PDF 대상 영역 ref
 
   useEffect(() => {
@@ -106,15 +107,39 @@ export default function Result() {
   const handleDownload = () => {
     if (!pdfRef.current) return;
 
+    const element = pdfRef.current;
+    const elementRect = element.getBoundingClientRect();
+
+    // 픽셀 → mm 변환 (1px ≒ 0.264583mm)
+    const widthMM = 210; // A4 너비 고정
+    const heightMM = elementRect.height * 0.2645833;
+
     const opt = {
-      margin: 10, // mm 단위 여백
+      margin: 0,
       filename: "wealth_report.pdf",
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#f15b37", // 배경색 유지
+      },
+      jsPDF: {
+        unit: "mm",
+        format: [widthMM, heightMM + 10], // ✔ 정확한 사이즈 지정
+        orientation: "portrait",
+      },
     };
 
-    html2pdf().set(opt).from(pdfRef.current).save();
+    html2pdf().set(opt).from(element).save();
+
+    showToast("✅ 운세 리포트가 저장되었습니다!");
     mixpanel.track("결과 PDF 다운로드");
+  };
+
+  const showToast = (message) => {
+    setToastMessage(message);
+    setTimeout(() => {
+      setToastMessage(""); // 2.5초 뒤 숨김
+    }, 2500);
   };
 
   if (loading)
@@ -130,10 +155,13 @@ export default function Result() {
 
   return (
     <div className={styles.main_body_wrap}>
+      {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
+
       <div className={styles.main_content_wrap}>
         {/* ▼▼▼ ① ‘pdfRef’ 래퍼 시작 */}
         <div ref={pdfRef} className={styles.pdf_page}>
           {/* 배너 */}
+
           <div className={styles.header_img_wrap}>
             <img
               className={styles.header_img}

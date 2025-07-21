@@ -95,10 +95,12 @@
 }
 
 .pdf_page {
-  /* background-color: #f15b37; */
+  background-color: #f15b37;
   color: #101010;
   font-family: "GmarketSans";
-  margin: 24px 24px 24px 24px;
+  margin: 0; /* 여백 제거 */
+  padding: 24px;
+  overflow: hidden; /* 잉여 영역 방지 */
 }
 
 .loading_centered {
@@ -110,4 +112,36 @@
   align-items: center;
   height: 100vh; /* 전체 화면 높이 */
   width: 100%; /* 전체 화면 너비 */
+}
+.toast {
+  position: fixed;
+  top: 0px; /* ✔ 시작 위치 조금 더 아래로 */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(33, 33, 33, 0.95);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 999;
+  animation: dropAndFade 3s ease-in-out forwards;
+  font-family: "GmarketSans";
+}
+@keyframes dropAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-40px); /* 더 확실하게 위에서 시작 */
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px); /* 내려오면서 자리 잡기 */
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-40px); /* 다시 위로 올라가며 사라짐 */
+  }
 }
