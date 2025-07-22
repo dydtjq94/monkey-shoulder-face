@@ -58,7 +58,7 @@ export default function Qr() {
         width: 280,
         height: 280,
         data: url,
-        image: "/logo.png",
+        image: "/assets/logo.png",
         margin: 4,
         dotsOptions: { type: "square", color: "#202020" },
         backgroundOptions: { color: "transparent" },
@@ -71,7 +71,7 @@ export default function Qr() {
     }
 
     /* 60초 뒤 자동 홈 이동 */
-    const to = setTimeout(() => navigate("/"), 6000_000);
+    const to = setTimeout(() => navigate("/"), 60_000);
     return () => clearTimeout(to);
   }, [docId, navigate]);
 

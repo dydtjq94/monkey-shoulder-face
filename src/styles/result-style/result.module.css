@@ -93,12 +93,17 @@
 }
 
 .pdf_page {
-  background-color: #f15b37;
+  background: linear-gradient(
+    to bottom,
+    #f15b37 0%,
+    #f15b37 80%,
+    rgba(241, 91, 55, 0) 100%
+  );
   color: #101010;
   font-family: "GmarketSans";
-  margin: 0; /* 여백 제거 */
+  margin: 0;
   padding: 24px;
-  overflow: hidden; /* 잉여 영역 방지 */
+  overflow: hidden;
 }
 
 .loading_centered {
