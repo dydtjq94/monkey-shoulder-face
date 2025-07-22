@@ -120,7 +120,7 @@ export default function Result() {
 
     const opt = {
       margin: 0,
-      filename: "wealth_report.pdf",
+      filename: "재물운 용하당.pdf",
       html2canvas: {
         scale: 2,
         useCORS: true,
