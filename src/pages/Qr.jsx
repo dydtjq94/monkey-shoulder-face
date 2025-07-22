@@ -51,24 +51,32 @@ export default function Qr() {
     mixpanel.identify(mpId);
     mixpanel.track("QR 화면 진입", { docId });
 
-    /* ─ QR 코드 ─ */
+    // QR 코드 로직
     const url = `${window.location.origin}/result/${docId}`;
-    if (!qrInstance.current) {
-      qrInstance.current = new QRCodeStyling({
-        width: 280,
-        height: 280,
-        data: url,
-        image: "/assets/logo.png",
-        margin: 4,
-        dotsOptions: { type: "square", color: "#202020" },
-        backgroundOptions: { color: "transparent" },
-      });
-    } else qrInstance.current.update({ data: url });
 
-    if (qrRef.current) {
-      qrRef.current.innerHTML = "";
-      qrInstance.current.append(qrRef.current);
-    }
+    const logoImg = new Image();
+    logoImg.src = "/assets/logo.png";
+    logoImg.onload = () => {
+      // 이미지 로드 완료 후 QR 생성
+      if (!qrInstance.current) {
+        qrInstance.current = new QRCodeStyling({
+          width: 280,
+          height: 280,
+          data: url,
+          image: "/assets/logo.png",
+          margin: 4,
+          dotsOptions: { type: "square", color: "#202020" },
+          backgroundOptions: { color: "transparent" },
+        });
+      } else {
+        qrInstance.current.update({ data: url });
+      }
+
+      if (qrRef.current) {
+        qrRef.current.innerHTML = "";
+        qrInstance.current.append(qrRef.current);
+      }
+    };
 
     /* 60초 뒤 자동 홈 이동 */
     const to = setTimeout(() => navigate("/"), 60_000);
