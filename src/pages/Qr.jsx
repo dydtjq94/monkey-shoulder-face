@@ -60,8 +60,8 @@ export default function Qr() {
       // 이미지 로드 완료 후 QR 생성
       if (!qrInstance.current) {
         qrInstance.current = new QRCodeStyling({
-          width: 280,
-          height: 280,
+          width: 240,
+          height: 240,
           data: url,
           image: "/assets/logo.png",
           margin: 4,
