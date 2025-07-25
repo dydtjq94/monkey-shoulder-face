@@ -1,12 +1,31 @@
-/* ─── src/pages/Home.jsx ─── */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import mixpanel from "mixpanel-browser";
 import styles from "../styles/home-style/home.module.css";
 
 export default function Home() {
-  /* ───────── Mixpanel 초기화 ───────── */
+  /* ───────── 0. 비밀번호 게이트 ───────── */
+  // 로컬스토리지에 auth_ok 플래그가 있으면 바로 통과
+  const [isVerified, setIsVerified] = useState(() => {
+    return !!localStorage.getItem("auth_ok");
+  });
+  const [password, setPassword] = useState("");
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    if (password === "1234") {
+      // 인증 통과 → 플래그 저장
+      localStorage.setItem("auth_ok", "true");
+      setIsVerified(true);
+    } else {
+      alert("비밀번호가 틀렸습니다.");
+    }
+  };
+
+  /* ───────── 1. Mixpanel 초기화 ───────── */
   useEffect(() => {
+    if (!isVerified) return; // 비밀번호 통과 후에만 추적
+
     let distinctId = localStorage.getItem("mixpanel_distinct_id");
     if (!distinctId) {
       distinctId = crypto.randomUUID();
@@ -24,9 +43,9 @@ export default function Home() {
       userAgent: navigator.userAgent,
       timestamp: new Date().toISOString(),
     });
-  }, []);
+  }, [isVerified]);
 
-  /* ───────── 사진 업로드 → /loading ───────── */
+  /* ───────── 2. 사진 업로드 → /loading ───────── */
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -43,7 +62,29 @@ export default function Home() {
     navigate("/loading", { state: { photoUrl: url } }); // 사진 URL 넘겨 이동
   };
 
-  /* ───────── JSX ───────── */
+  /* ───────── 3. 비밀번호 입력 뷰 ───────── */
+  if (!isVerified) {
+    return (
+      <div className={styles.password_wrap}>
+        <form onSubmit={handlePasswordSubmit} className={styles.password_form}>
+          <h2 className={styles.password_title}>비밀번호 입력</h2>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="1234"
+            className={styles.password_input}
+            autoFocus
+          />
+          <button type="submit" className={styles.password_button}>
+            확인
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  /* ───────── 4. 메인 JSX ───────── */
   return (
     <div className={styles.main_body_wrap}>
       {/* 숨겨진 파일 입력 */}
