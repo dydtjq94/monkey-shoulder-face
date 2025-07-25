@@ -72,7 +72,7 @@ export default function Home() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="1234"
+            placeholder="비밀번호를 입력해주세요."
             className={styles.password_input}
             autoFocus
           />
