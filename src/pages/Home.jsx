@@ -13,7 +13,7 @@ export default function Home() {
 
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
-    if (password === "1234") {
+    if (password === "0101") {
       // 인증 통과 → 플래그 저장
       localStorage.setItem("auth_ok", "true");
       setIsVerified(true);
