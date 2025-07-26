@@ -102,7 +102,13 @@ export default function Qr() {
         </div>
 
         <div className={styles.main_title_wrap}>
-          <div className={styles.main_title}>재물운 용하당</div>
+          <div className={styles.header_img_wrap2}>
+            <img
+              className={styles.header_img2}
+              src="/assets/long_title.png"
+              alt="배너"
+            />
+          </div>
           <div className={styles.sub_title}>당신의 재물운은?</div>
           <div className={styles.sub_title2}>
             (아래 QR을 스캔하면 상세한 결과와 함께

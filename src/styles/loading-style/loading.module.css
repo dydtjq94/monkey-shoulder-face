@@ -80,6 +80,18 @@
   width: 280px;
 }
 
+.header_img_wrap2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 36px;
+  margin-bottom: 48px;
+}
+
+.header_img2 {
+  width: 600px;
+}
+
 .main_title_wrap {
   width: 100%;
   display: flex;

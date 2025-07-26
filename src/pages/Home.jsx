@@ -119,10 +119,12 @@ export default function Home() {
         </div>
 
         <div className={styles.main_title_wrap}>
-          <div className={styles.main_title}>
-            재물운
-            <br />
-            용하당
+          <div className={styles.header_img_wrap2}>
+            <img
+              className={styles.header_img2}
+              src="/assets/short_title.png"
+              alt="배너"
+            />
           </div>
           <div className={styles.main_subtitle}>
             관상으로 보는 나의 재물운

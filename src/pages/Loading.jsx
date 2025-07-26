@@ -124,8 +124,12 @@ export default function Loading() {
         </div>
 
         {/* 타이틀 */}
-        <div className={styles.main_title_wrap}>
-          <div className={styles.main_title}>재물운 용하당</div>
+        <div className={styles.header_img_wrap2}>
+          <img
+            className={styles.header_img2}
+            src="/assets/long_title.png"
+            alt="배너"
+          />
         </div>
 
         {/* 분석 중 화면 */}
