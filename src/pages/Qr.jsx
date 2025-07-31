@@ -49,7 +49,7 @@ export default function Qr() {
       persistence: "localStorage",
     });
     mixpanel.identify(mpId);
-    mixpanel.track("QR 화면 진입", { docId });
+    mixpanel.track("실제 데이터 - QR 화면 진입", { docId });
 
     // QR 코드 로직
     const url = `${window.location.origin}/result/${docId}`;

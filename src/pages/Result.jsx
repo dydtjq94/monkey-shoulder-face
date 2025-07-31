@@ -78,7 +78,7 @@ export default function Result() {
       persistence: "localStorage",
     });
     mixpanel.identify(mpId);
-    mixpanel.track("결과 화면 진입", { url: location.href });
+    mixpanel.track("실제 데이터 - 결과 화면 진입", { url: location.href });
 
     /* 5초 뒤 Firestore fetch */
     const timer = setTimeout(async () => {
@@ -136,7 +136,7 @@ export default function Result() {
     html2pdf().set(opt).from(pdfRef.current).save();
 
     showToast("운세 보고서가 저장되었습니다!");
-    mixpanel.track("결과 PDF 다운로드");
+    mixpanel.track("실제 데이터 - 결과 PDF 다운로드");
   };
 
   const showToast = (message) => {

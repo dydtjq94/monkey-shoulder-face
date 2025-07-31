@@ -38,7 +38,7 @@ export default function Home() {
       persistence: "localStorage",
     });
     mixpanel.identify(distinctId);
-    mixpanel.track("메인 페이지 방문-리액트", {
+    mixpanel.track("실제 데이터 - 메인 페이지 방문-리액트", {
       url: window.location.href,
       userAgent: navigator.userAgent,
       timestamp: new Date().toISOString(),
@@ -57,7 +57,7 @@ export default function Home() {
 
     const url = URL.createObjectURL(file); // 브라우저 임시 URL
     sessionStorage.setItem("face_photo_url", url); // 새로고침 대비
-    mixpanel.track("사진 업로드", { filename: file.name });
+    mixpanel.track("실제 데이터 - 사진 업로드", { filename: file.name });
 
     navigate("/loading", { state: { photoUrl: url } }); // 사진 URL 넘겨 이동
   };

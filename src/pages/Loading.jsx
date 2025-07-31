@@ -26,7 +26,7 @@ export default function Loading() {
       persistence: "localStorage",
     });
     mixpanel.identify(id);
-    mixpanel.track("로딩-화면 진입", { url: location.href });
+    mixpanel.track("실제 데이터 - 로딩-화면 진입", { url: location.href });
   }, []);
 
   /* 분석 파이프라인 */
@@ -39,7 +39,7 @@ export default function Loading() {
       try {
         /* 1) 얼굴 특징 */
         setProgress("관상가가 당신의 관상을 분석중");
-        mixpanel.track("분석 시작");
+        mixpanel.track("실제 데이터 - 분석 시작");
 
         const blob = await fetch(photoUrl).then((r) => r.blob());
         const form = new FormData();
@@ -97,11 +97,11 @@ export default function Loading() {
           JSON.stringify({ id: docRef.id, features, ...miniJson, ...scoreJson })
         );
 
-        mixpanel.track("분석 완료", { docId: docRef.id });
+        mixpanel.track("실제 데이터 - 분석 완료", { docId: docRef.id });
         navigate(`/qr/${docRef.id}`);
       } catch (err) {
         console.error(err);
-        mixpanel.track("분석 오류", { message: err.message });
+        mixpanel.track("실제 데이터 - 분석 오류", { message: err.message });
         alert(`분석 중 오류가 발생했습니다.\n${err.message}`);
         navigate("/");
       }
